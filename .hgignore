@@ -1,0 +1,4 @@
+syntax: glob
+*~
+elpa/
+auto-save-list/
