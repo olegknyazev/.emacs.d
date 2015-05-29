@@ -2,7 +2,10 @@
 ;; Packages
 
 (defvar desired-packages
-  '(projectile))
+  '(projectile
+    scala-mode2
+    web-mode
+    ample-zen-theme))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -21,6 +24,10 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+;; Modes
+
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+
 ;; UI
 
 (setq inhibit-startup-message t)
@@ -32,3 +39,15 @@
   (scroll-bar-mode -1))
 
 (setq initial-frame-alist '((width . 100) (height . 50)))
+
+(load-theme 'ample-zen t)
+
+;; Projectile
+
+(projectile-global-mode)
+
+;; Navigation
+
+(ido-mode t)
+
+(setq ido-enable-flex-matching t)
