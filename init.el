@@ -28,6 +28,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
+(global-auto-revert-mode t)
+
 ;; UI
 
 (setq inhibit-startup-message t)
