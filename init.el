@@ -40,7 +40,11 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-(setq initial-frame-alist '((width . 100) (height . 50)))
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+; Doesn't works yet:
+;; (when (> (window-total-width (selected-window)) 120)
+;;   (split-window-right))
 
 (load-theme 'ample-zen t)
 
