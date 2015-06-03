@@ -1,4 +1,5 @@
 
+
 ;; Packages
 
 (defvar desired-packages
@@ -40,11 +41,12 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 
-; Doesn't works yet:
-;; (when (> (window-total-width (selected-window)) 120)
-;;   (split-window-right))
+(when (> (display-pixel-width) 1400)
+  (split-window-right))
+
+(dired default-directory)
 
 (load-theme 'ample-zen t)
 
