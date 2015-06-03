@@ -43,7 +43,8 @@
 
 (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 
-(when (> (display-pixel-width) 1400)
+(when (or (> (display-pixel-width) 1400) 
+	  (> (window-total-width (selected-window)) 120))
   (split-window-right))
 
 (dired default-directory)
