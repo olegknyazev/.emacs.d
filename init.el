@@ -6,6 +6,7 @@
   '(projectile
     scala-mode2
     web-mode
+    wgrep
     ample-zen-theme))
 
 (require 'package)
