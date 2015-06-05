@@ -32,6 +32,10 @@
 
 (global-auto-revert-mode t)
 
+;; Editing
+
+(setq tab-stop-list (number-sequence 4 120 4))
+
 ;; UI
 
 (setq inhibit-startup-message t)
