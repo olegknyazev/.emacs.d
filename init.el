@@ -1,13 +1,15 @@
 
-
 ;; Packages
 
-(defvar desired-packages
-  '(projectile
-    scala-mode2
-    web-mode
-    wgrep
-    ample-zen-theme))
+(defvar desired-packages)
+
+(setq desired-packages
+      '(projectile
+	scala-mode2
+	sbt-mode
+	web-mode
+	wgrep
+	ample-zen-theme))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -32,9 +34,28 @@
 
 (global-auto-revert-mode t)
 
-;; Editing
+;; Generic editing
 
 (setq tab-stop-list (number-sequence 4 120 4))
+
+;; Scala and sbt mode
+
+(setq scala-indent:indent-value-expression t)
+
+(add-hook 'scala-mode-hook 
+	  '(lambda ()
+	     (local-set-key (kbd "RET") 'newline-and-indent)))
+
+(add-hook 'sbt-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "C-a") 'comint-bol)
+	     (global-set-key (kbd "C-c b") 'sbt-command)))
+			      
+;; Shell
+
+(add-hook 'shell-mode
+	  '(lambda ()
+	     (local-set-key (kbd "C-a") 'comint-bol)))
 
 ;; UI
 
