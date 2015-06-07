@@ -38,13 +38,18 @@
 
 (setq tab-stop-list (number-sequence 4 120 4))
 
+(global-set-key (kbd "C-'") 'next-error)
+(global-set-key (kbd "C-M-'") 'previous-error)
+
 ;; Scala and sbt mode
 
 (setq scala-indent:indent-value-expression t)
 
 (add-hook 'scala-mode-hook 
 	  '(lambda ()
-	     (local-set-key (kbd "RET") 'newline-and-indent)))
+	     (local-set-key (kbd "RET") 'newline-and-indent)
+	     (local-set-key (kbd "C-c u") 'sbt-find-usages)
+	     (local-set-key (kbd "C-c d") 'sbt-find-definitions)))
 
 (add-hook 'sbt-mode-hook
 	  '(lambda ()
