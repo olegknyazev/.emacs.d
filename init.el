@@ -3,7 +3,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/local")
 
-(load "local-before.el")
+(load "local-before.el" t)
 
 ;; Packages
 
@@ -101,4 +101,4 @@
 
 ;; Local settings (finishing)
 
-(load "local-after.el")
+(load "local-after.el" t)
