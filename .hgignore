@@ -4,3 +4,5 @@ elpa/
 auto-save-list/
 *.cache
 projectile-bookmarks.eld
+local/
+ido.last

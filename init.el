@@ -1,4 +1,10 @@
 
+;; Local settings (for proxy, e.g.)
+
+(add-to-list 'load-path "~/.emacs.d/local")
+
+(load "local-before.el")
+
 ;; Packages
 
 (defvar desired-packages)
@@ -91,3 +97,7 @@
 (ido-mode t)
 
 (setq ido-enable-flex-matching t)
+
+;; Local settings (finishing)
+
+(load "local-after.el")
