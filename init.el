@@ -80,9 +80,10 @@
 
 (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 
-(when (or (> (display-pixel-width) 1400) 
-	  (> (window-total-width (selected-window)) 120))
-  (split-window-right))
+(let ((monitor-pixel-width (nth 4 (assq 'geometry (car (display-monitor-attributes-list))))))
+  (when (or (> monitor-pixel-width 1400) 
+	    (> (window-total-width (selected-window)) 200))
+    (split-window-right)))
 
 (dired default-directory)
 
