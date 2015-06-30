@@ -44,6 +44,7 @@
 ;; Generic editing
 
 (setq tab-stop-list (number-sequence 4 120 4))
+(setq-default indent-tabs-mode nil)
 
 (global-set-key (kbd "C-'") 'next-error)
 (global-set-key (kbd "C-M-'") 'previous-error)
@@ -81,7 +82,11 @@
 
 (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 
-(let ((monitor-pixel-width (nth 4 (assq 'geometry (car (display-monitor-attributes-list))))))
+(let ((monitor-pixel-width
+       ;; seems that `display-monitor-attributes-list` is added in 24.4
+       (if (boundp 'display-monitor-attributes-list) 
+	   (nth 4 (assq 'geometry (car (display-monitor-attributes-list))))
+	 (display-pixel-width))))
   (when (or (> monitor-pixel-width 1400) 
 	    (> (window-total-width (selected-window)) 200))
     (split-window-right)))
