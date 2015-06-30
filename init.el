@@ -14,6 +14,7 @@
 	scala-mode2
 	sbt-mode
 	web-mode
+	cmake-mode
 	wgrep
 	ample-zen-theme))
 
