@@ -14,6 +14,7 @@
 	scala-mode2
 	sbt-mode
 	web-mode
+	cmake-mode
 	wgrep
 	ample-zen-theme
 	expand-region))
@@ -44,6 +45,7 @@
 ;; Generic editing
 
 (setq tab-stop-list (number-sequence 4 120 4))
+(setq-default indent-tabs-mode nil)
 
 (global-set-key (kbd "C-'") 'next-error)
 (global-set-key (kbd "C-M-'") 'previous-error)
