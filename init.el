@@ -15,7 +15,8 @@
 	sbt-mode
 	web-mode
 	wgrep
-	ample-zen-theme))
+	ample-zen-theme
+	expand-region))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -46,6 +47,7 @@
 
 (global-set-key (kbd "C-'") 'next-error)
 (global-set-key (kbd "C-M-'") 'previous-error)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Scala and sbt mode
 
