@@ -1,4 +1,5 @@
 
+
 ;; Local settings (for proxy, e.g.)
 
 (add-to-list 'load-path "~/.emacs.d/local")
@@ -38,6 +39,7 @@
 ;; Modes
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (global-auto-revert-mode t)
 
@@ -48,6 +50,24 @@
 
 (global-set-key (kbd "C-'") 'next-error)
 (global-set-key (kbd "C-M-'") 'previous-error)
+
+;; Python
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq tab-width 4)
+            (setq python-indent 4)))
+
+;; C++
+
+(c-add-style "my-style"
+             '("bsd"
+               (indent-tabs-mode . nil)
+               (c-basic-offset . 4)))
+
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (c-set-style "my-style")))
 
 ;; Scala and sbt mode
 
@@ -104,6 +124,16 @@
 (ido-mode t)
 
 (setq ido-enable-flex-matching t)
+
+;; Windows
+
+(when (string-equal system-type "windows-nt")
+  (progn
+    (setq cygwin-bin "c:\\cygwin\\bin")
+    (setenv "PATH" (concat cygwin-bin ";"))
+    (setq exec-path '(cygwin-bin))))
+
+(setq null-device "/dev/null")
 
 ;; Local settings (finishing)
 
