@@ -102,11 +102,10 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+(setq initial-frame-alist '((fullscreen . maximized)))
 
 (let ((monitor-pixel-width
-       ;; seems that `display-monitor-attributes-list` is added in 24.4
-       (if (boundp 'display-monitor-attributes-list) 
+       (if (fboundp 'display-monitor-attributes-list)
 	   (nth 4 (assq 'geometry (car (display-monitor-attributes-list))))
 	 (display-pixel-width))))
   (when (or (> monitor-pixel-width 1400) 
