@@ -49,6 +49,8 @@
 (setq tab-stop-list (number-sequence 4 120 4))
 (setq-default indent-tabs-mode nil)
 
+(delete-selection-mode 1)
+
 (global-set-key (kbd "C-'") 'next-error)
 (global-set-key (kbd "C-M-'") 'previous-error)
 (global-set-key (kbd "C-=") 'er/expand-region)
