@@ -18,7 +18,8 @@
 	cmake-mode
 	wgrep
 	ample-zen-theme
-	expand-region))
+	expand-region
+        company))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -43,6 +44,8 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (global-auto-revert-mode t)
+
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; Generic editing
 
