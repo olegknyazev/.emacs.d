@@ -58,6 +58,14 @@
 (global-set-key (kbd "C-M-'") 'previous-error)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+(defun toggle-comment-on-line ()
+  "Comment or uncomment current line"
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+(global-set-key (kbd "C-;") 'toggle-comment-on-line)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; Python
 
 (add-hook 'python-mode-hook
@@ -120,9 +128,9 @@
 	    (> (window-total-width (selected-window)) 200))
     (split-window-right)))
 
-(dired default-directory)
-
 (load-theme 'ample-zen t)
+
+(setq-default frame-title-format "%b (%f)")
 
 ;; Projectile
 
