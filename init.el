@@ -96,15 +96,16 @@
 
 (add-hook 'sbt-mode-hook
 	  '(lambda ()
-	     (local-set-key (kbd "C-a") 'comint-bol)
 	     (global-set-key (kbd "C-c b") 'sbt-command)
              (ansi-color-for-comint-mode-on)))
-			      
-;; Shell
 
-(add-hook 'shell-mode
+;; Comint
+
+(add-hook 'comint-mode-hook
 	  '(lambda ()
 	     (local-set-key (kbd "C-a") 'comint-bol)))
+			      
+;; Shell
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
