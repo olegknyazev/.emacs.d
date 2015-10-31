@@ -8,18 +8,19 @@
 ;; Packages
 
 (defvar desired-packages
-      '(projectile
+  '(projectile
 
-	scala-mode2
-	sbt-mode
-	web-mode
-	cmake-mode
-        clojure-mode
+    scala-mode2
+    sbt-mode
+    web-mode
+    cmake-mode
+    clojure-mode
+    cider
 
-	wgrep
-	ample-zen-theme
-	expand-region
-        company))
+    wgrep
+    ample-zen-theme
+    expand-region
+    company))
 
 (require 'package)
 (add-to-list 'package-archives
