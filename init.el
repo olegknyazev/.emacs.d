@@ -59,9 +59,10 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 (defun toggle-comment-on-line ()
-  "Comment or uncomment current line"
+  ;; "Comment or uncomment current line"
   (interactive)
-  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+  (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+  (next-line))
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
 (fset 'yes-or-no-p 'y-or-n-p)
