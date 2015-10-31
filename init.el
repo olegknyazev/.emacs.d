@@ -1,5 +1,4 @@
 
-
 ;; Local settings (for proxy, e.g.)
 
 (add-to-list 'load-path "~/.emacs.d/local")
@@ -8,14 +7,15 @@
 
 ;; Packages
 
-(defvar desired-packages)
-
-(setq desired-packages
+(defvar desired-packages
       '(projectile
+
 	scala-mode2
 	sbt-mode
 	web-mode
 	cmake-mode
+        clojure-mode
+
 	wgrep
 	ample-zen-theme
 	expand-region
