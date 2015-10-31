@@ -58,6 +58,7 @@
 (global-set-key (kbd "C-'") 'next-error)
 (global-set-key (kbd "C-M-'") 'previous-error)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 
 (defun toggle-comment-on-line ()
   ;; "Comment or uncomment current line"
@@ -110,6 +111,8 @@
 ;; Shell
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+(define-key shell-mode-map (kbd "TAB") #'company-manual-begin)
 
 ;; UI
 
