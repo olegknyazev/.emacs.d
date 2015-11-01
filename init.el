@@ -112,7 +112,7 @@
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-(define-key shell-mode-map (kbd "TAB") #'company-manual-begin)
+(define-key shell-mode-map (kbd "TAB") #'company-complete-common)
 
 ;; UI
 
