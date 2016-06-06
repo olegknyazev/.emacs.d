@@ -20,7 +20,8 @@
     wgrep
     ample-zen-theme
     expand-region
-    company))
+    company
+    editorconfig))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -32,12 +33,17 @@
 
 (package-initialize)
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-(dolist (p desired-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+;; Installing of all the packages from desired-packages list
+(let ((refreshed nil))
+  (when (not package-archive-contents)
+    (package-refresh-contents)
+    (setq refreshed t))
+  (dolist (p desired-packages)
+    (when (not (package-installed-p p))
+      (unless refreshed
+        (package-refresh-contents)
+        (setq refreshed t))
+      (package-install p))))
 
 ;; Modes
 
@@ -112,7 +118,7 @@
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-(define-key shell-mode-map (kbd "TAB") #'company-complete-common)
+;; (define-key shell-mode-map (kbd "TAB") #'company-complete-common)
 
 ;; UI
 
