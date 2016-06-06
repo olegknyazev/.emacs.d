@@ -16,6 +16,7 @@
     cmake-mode
     clojure-mode
     cider
+    csharp-mode
 
     wgrep
     ample-zen-theme
@@ -148,6 +149,7 @@
 
 (setq projectile-indexing-method 'native)
 (setq projectile-enable-caching t)
+(projectile-global-mode)
 
 ;; Navigation
 
