@@ -146,7 +146,7 @@
 
 ;; Projectile
 
-(projectile-global-mode)
+(setq projectile-indexing-method 'native)
 
 ;; Navigation
 
