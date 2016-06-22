@@ -103,22 +103,22 @@
 (setq scala-indent:indent-value-expression t)
 
 (add-hook 'scala-mode-hook 
-	  '(lambda ()
-	     (local-set-key (kbd "RET") 'newline-and-indent)
-	     (local-set-key (kbd "C-c u") 'sbt-find-usages)
-	     (local-set-key (kbd "C-c d") 'sbt-find-definitions)))
+    '(lambda ()
+       (local-set-key (kbd "RET") 'newline-and-indent)
+       (local-set-key (kbd "C-c u") 'sbt-find-usages)
+       (local-set-key (kbd "C-c d") 'sbt-find-definitions)))
 
 (add-hook 'sbt-mode-hook
-	  '(lambda ()
-	     (global-set-key (kbd "C-c b") 'sbt-command)
+    '(lambda ()
+       (global-set-key (kbd "C-c b") 'sbt-command)
              (ansi-color-for-comint-mode-on)))
 
 ;; Comint
 
 (add-hook 'comint-mode-hook
-	  '(lambda ()
-	     (local-set-key (kbd "C-a") 'comint-bol)))
-			      
+    '(lambda ()
+       (local-set-key (kbd "C-a") 'comint-bol)))
+            
 ;; Shell
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -139,10 +139,10 @@
 
 (let ((monitor-pixel-width
        (if (fboundp 'display-monitor-attributes-list)
-	   (nth 4 (assq 'geometry (car (display-monitor-attributes-list))))
-	 (display-pixel-width))))
+     (nth 4 (assq 'geometry (car (display-monitor-attributes-list))))
+   (display-pixel-width))))
   (when (or (> monitor-pixel-width 1400) 
-	    (> (window-total-width (selected-window)) 200))
+      (> (window-total-width (selected-window)) 200))
     (split-window-right)))
 
 (load-theme 'ample-zen t)
