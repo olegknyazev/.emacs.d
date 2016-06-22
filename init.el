@@ -7,10 +7,14 @@
 
 ;; Packages
 
+; Fix of https on Windows
+; https://www.reddit.com/r/emacs/comments/2k2url/marmalade_gets_ssl_finally/clja711?context=3
+(require 'gnutls)
+
 (defvar desired-packages
   '(projectile
 
-    scala-mode2
+    scala-mode
     sbt-mode
     web-mode
     cmake-mode
@@ -26,7 +30,7 @@
 
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("tromey" . "http://tromey.com/elpa/") t)
 (add-to-list 'package-archives
