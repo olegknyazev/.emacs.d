@@ -149,6 +149,8 @@
 
 (setq-default frame-title-format "%b (%f)")
 
+(set-face-attribute 'default nil :height 130)
+
 ;; Projectile
 
 (setq projectile-indexing-method 'native)
