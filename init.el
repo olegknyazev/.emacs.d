@@ -38,7 +38,7 @@
 
 (package-initialize)
 
-;; Installing of all the packages from desired-packages list
+; Installing of all the packages from desired-packages list
 (let ((refreshed nil))
   (when (not package-archive-contents)
     (package-refresh-contents)
@@ -56,6 +56,10 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (global-auto-revert-mode t)
+
+(setq desktop-dirname "~/.emacs.d/local/"
+      desktop-path (list desktop-dirname))
+(desktop-save-mode t)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -123,8 +127,6 @@
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; (define-key shell-mode-map (kbd "TAB") #'company-complete-common)
-
 ;; UI
 
 (setq inhibit-startup-message t)
@@ -168,8 +170,8 @@
 (when (string-equal system-type "windows-nt")
   (progn
     (setq cygwin-bin "c:\\cygwin\\bin")
-    (setenv "PATH" (concat cygwin-bin ";"))
-    (setq exec-path '(cygwin-bin))))
+    (setenv "PATH" (concat cygwin-bin ";" (getenv "PATH")))
+    (setq exec-path (append '(cygwin-bin) exec-path))))
 
 (setq null-device "/dev/null")
 
