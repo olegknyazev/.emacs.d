@@ -1,7 +1,12 @@
 
 ;; Local settings (for proxy, e.g.)
 
-(add-to-list 'load-path "~/.emacs.d/local")
+(setq local-dir "~/.emacs.d/local")
+
+(unless (file-exists-p local-dir)
+  (mkdir local-dir))
+
+(add-to-list 'load-path local-dir)
 
 (load "local-before.el" t)
 
@@ -57,7 +62,7 @@
 
 (global-auto-revert-mode t)
 
-(setq desktop-dirname "~/.emacs.d/local/"
+(setq desktop-dirname local-dir
       desktop-path (list desktop-dirname))
 (desktop-save-mode t)
 
